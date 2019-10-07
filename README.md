@@ -1,0 +1,2 @@
+# Frindi
+French learning app
