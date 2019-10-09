@@ -4,6 +4,7 @@ import NavStyles from '../styles/NavStyles';
 import UserSettingScreen from "./UserSettingScreen";
 import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
+import RegisterScreen from "./Authentication/RegisterScreen";
 import MainScreen from "./MainScreen";
 import {
   createSwitchNavigator,
@@ -73,7 +74,8 @@ const UserSettingScreenStackNavigator = createStackNavigator(
 const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
-    LoginScreen: LoginScreen
+    LoginScreen: LoginScreen,
+    RegisterScreen: RegisterScreen
   },
 );
 
