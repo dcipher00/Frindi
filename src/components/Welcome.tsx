@@ -6,7 +6,7 @@ interface AppProps {}
 
 export default class UserSettingScreen extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Fridni",
+    title: "Frindi",
     ...NavStyles
   };
 
