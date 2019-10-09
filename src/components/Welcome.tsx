@@ -17,7 +17,10 @@ export default class UserSettingScreen extends React.Component<AppProps> {
           title="Login"
           onPress={() => this.props.navigation.navigate('LoginScreen')}
         />
-        <Button title="Sign Up" onPress={() => alert('button pressed')} />
+        <Button
+          title="Sign Up" 
+          onPress={() => this.props.navigation.navigate('RegisterScreen')}
+         />
       </View>
     );
   }
