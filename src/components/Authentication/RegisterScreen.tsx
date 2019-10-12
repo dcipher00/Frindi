@@ -1,6 +1,7 @@
 import React from "react";
-import { TextInput, StyleSheet, View, Text, Button, ImageBackground } from "react-native";
+import { TextInput, StyleSheet, View, Text, ImageBackground } from "react-native";
 import NavStyles from '../../styles/NavStyles';
+import Button from "react-native-button";
 
 interface AppProps {}
 
@@ -59,10 +60,11 @@ export default class LoginScreen extends React.Component<AppProps> {
           />
           
           <Button
-            title={'Register'}
-            style={styles.button}
+            style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
             onPress={() => this.props.navigation.navigate('WelcomeScreen')}
-            />
+          >
+            Get Started
+          </Button>
         </View>
         </ImageBackground>
     );
@@ -92,8 +94,14 @@ const styles = StyleSheet.create({
     fontSize: 32
   },
   button: {
-    width: 20,
-    padding: 20
+    alignContent: "center",
+    alignItems: "center",
+    fontSize: 16,
+    textAlignVertical: "center",
+    borderRadius: 25,
+    width: 150,
+    height: 35,
+    marginVertical: 20
   },
   background: {
     height: "100%",
