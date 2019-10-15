@@ -16,6 +16,7 @@ export default class LoginScreen extends React.Component<AppProps> {
     
     this.state = {
       username: '',
+      mobile: '',
     };
   }
 
@@ -36,7 +37,12 @@ export default class LoginScreen extends React.Component<AppProps> {
             placeholder={'Username/Email'}
             style={styles.input}
           />
-          
+          <TextInput
+            value={this.state.mobile}
+            onChangeText={(mobile) => this.setState({ mobile })}
+            placeholder={'Mobile No.'}
+            style={styles.input}
+          />
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
             onPress={() => this.props.navigation.navigate('OtpResetScreen')}
