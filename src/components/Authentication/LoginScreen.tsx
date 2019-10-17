@@ -5,6 +5,20 @@ import Button from "react-native-button";
 
 interface AppProps {}
 
+const required = (value) => (value || typeof value === "number" ? undefined : "Required");
+const maxLength = (max) => (value) =>
+	value && value.length > max ? `Must be ${max} characters or less` : undefined;
+const minLength = (min) => (value) =>
+	value && value.length < min ? `Must be ${min} characters or more` : undefined;
+
+const email = (value) =>
+	value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+		? "Invalid email address"
+		: undefined;
+
+const maxLength256 = maxLength(256);
+const minLength2 = minLength(2);
+
 export default class LoginScreen extends React.Component<AppProps> {
   static navigationOptions = {
     title: "Login",
@@ -20,6 +34,26 @@ export default class LoginScreen extends React.Component<AppProps> {
     };
   }
 
+  validate_field = () => {
+    const { username, password} = this.state
+    if(username !== email) {
+      alert("Please fill username")
+      return false
+    }
+    else if(password !== maxLength256 || password !== minLength2) {
+      alert ("Please fill password")
+      return false
+    }
+    return true
+  }
+
+  making_api_call=()=> {
+    if(this.validate_field())
+    {
+      this.props.navigation.navigate('ActivityScreen')
+    }
+  }
+
   render() {
     const Image = require("../../../assets/splash.png");
     return (
@@ -32,22 +66,22 @@ export default class LoginScreen extends React.Component<AppProps> {
           <Text style={styles.text}>Welcome To frindi</Text>
           
           <TextInput
-            value={this.state.username}
             onChangeText={(username) => this.setState({ username })}
             placeholder={'Username'}
             style={styles.input}
+            validate={[email, required, maxLength256, minLength2]}
           />
           <TextInput
-            value={this.state.password}
             onChangeText={(password) => this.setState({ password })}
             placeholder={'Password'}
             secureTextEntry={true}
             style={styles.input}
+            validate={[required]}
           />
           
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('ActivityScreen')}
+            onPress={() => this.making_api_call()}
           >
             Sign In!
           </Button>
