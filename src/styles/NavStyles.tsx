@@ -1,6 +1,6 @@
 export default {
-    headerStyle: {
-        backgroundColor: "#13236e"
+      headerStyle: {
+        backgroundColor: "#ff9900"
       },
       headerTitleStyle: {
         color: "#ffffff"
