@@ -5,9 +5,9 @@ import Button from "react-native-button";
 
 interface AppProps {}
 
-export default class ForgotPasswordScreen extends React.Component<AppProps> {
+export default class OtpAuthenticationScreen extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Forgot Password",
+    title: "Otp",
     ...NavStyles
   };
 
@@ -15,8 +15,7 @@ export default class ForgotPasswordScreen extends React.Component<AppProps> {
     super(props);
     
     this.state = {
-      username: '',
-      mobile: '',
+      otp: ''
     };
   }
 
@@ -29,25 +28,20 @@ export default class ForgotPasswordScreen extends React.Component<AppProps> {
           style={styles.background}
         >
         <View style={styles.container}>
-          <Text style={styles.text}>Please Enter Username</Text>
+          <Text style={styles.text}>Please Enter Otp</Text>
           
           <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username/Email'}
+            value={this.state.otp}
+            onChangeText={(otp) => this.setState({ otp })}
+            placeholder={'Otp'}
             style={styles.input}
           />
-          <TextInput
-            value={this.state.mobile}
-            onChangeText={(mobile) => this.setState({ mobile })}
-            placeholder={'Mobile No.'}
-            style={styles.input}
-          />
+          
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('OtpResetScreen')}
+            onPress={() => this.props.navigation.navigate('SetPasswordScreen')}
           >
-            Next
+            Sign In!
           </Button>
         </View>
         </ImageBackground>
