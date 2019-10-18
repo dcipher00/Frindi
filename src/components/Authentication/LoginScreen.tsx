@@ -46,10 +46,16 @@ export default class LoginScreen extends React.Component<AppProps> {
           />
           
           <Button
-            style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('ActivityScreen')}
+          onPress={() => this.props.navigation.navigate('ActivityScreen')}
+          style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
           >
             Sign In!
+          </Button>
+          <Button
+            onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}
+            style={[styles.button,{backgroundColor: "white", color:"#263992"}]}
+          >
+            Forgot Password?
           </Button>
         </View>
         </ImageBackground>
@@ -84,10 +90,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontSize: 16,
     textAlignVertical: "center",
-    borderRadius: 25,
-    width: 100,
+    borderRadius: 2,
+    width: 200,
     height: 35,
-    marginVertical: 20
+    marginVertical: 8
   },
   background: {
     height: "100%",

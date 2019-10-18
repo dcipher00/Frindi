@@ -5,7 +5,7 @@ import Button from "react-native-button";
 
 interface AppProps {}
 
-export default class LoginScreen extends React.Component<AppProps> {
+export default class RegisterScreen extends React.Component<AppProps> {
   static navigationOptions = {
     title: "Register",
     ...NavStyles
@@ -61,7 +61,7 @@ export default class LoginScreen extends React.Component<AppProps> {
           
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('WelcomeScreen')}
+            onPress={() => this.props.navigation.navigate('OtpAuthenticationScreen')}
           >
             Get Started
           </Button>
@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontSize: 16,
     textAlignVertical: "center",
-    borderRadius: 25,
-    width: 150,
+    borderRadius: 2,
+    width: 200,
     height: 35,
-    marginVertical: 20
+    marginVertical: 8
   },
   background: {
     height: "100%",

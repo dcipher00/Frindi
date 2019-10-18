@@ -4,16 +4,16 @@ import NavStyles from '../../styles/NavStyles';
 
 interface AppProps {}
 
-export default class ActivityScreen extends React.Component<AppProps> {
+export default class ChatScreen extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Activity",
+    title: "Chats",
     ...NavStyles
   };
   render() {
     return (
       <View style={styles.container}>
         <Button
-          title="Activity Welcome"
+          title="Chat Welcome"
           onPress={() => this.props.navigation.navigate('Welcome')}
         />
       </View>

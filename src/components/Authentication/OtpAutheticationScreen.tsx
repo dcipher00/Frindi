@@ -41,7 +41,7 @@ export default class OtpAuthenticationScreen extends React.Component<AppProps> {
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
             onPress={() => this.props.navigation.navigate('SetPasswordScreen')}
           >
-            Sign In!
+            Set Password
           </Button>
         </View>
         </ImageBackground>
@@ -76,10 +76,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontSize: 16,
     textAlignVertical: "center",
-    borderRadius: 25,
-    width: 100,
+    borderRadius: 2,
+    width: 200,
     height: 35,
-    marginVertical: 20
+    marginVertical: 8
   },
   background: {
     height: "100%",

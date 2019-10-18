@@ -6,6 +6,9 @@ import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
 import RegisterScreen from "./Authentication/RegisterScreen";
 import MainScreen from "./MainScreen";
+import OtpAuthenticationScreen from "./Authentication/OtpAutheticationScreen";
+import ForgotPasswordScreen from "./Authentication/ForgotPasswordScreen";
+import SetPasswordScreen from "./Authentication/SetPasswordScreen";
 import {
   createSwitchNavigator,
   createAppContainer,
@@ -15,7 +18,9 @@ import {
 } from 'react-navigation';
 import ActivityScreen from "./BottomTabs/ActivityScreen";
 import LectureScreen from "./BottomTabs/LectureScreen";
+import ChatScreen from "./BottomTabs/ChatScreen";
 import Icon from '@expo/vector-icons/Ionicons';
+import { fromRight } from "react-navigation-transitions";
 
 export default class NavigationScreen extends Component {
   static navigationOptions = {
@@ -32,8 +37,30 @@ export default class NavigationScreen extends Component {
 
 const MainScreenTabNavigator = createBottomTabNavigator(
   {
-    LectureScreen,
-    ActivityScreen,
+    LectureScreen:{
+      screen: LectureScreen,
+      navigationOptions: {
+        tabBarIcon:({tintColor})=>(  
+          <Icon name="ios-videocam" color={tintColor} size={25}/>
+        )
+      }
+    },
+    ActivityScreen: {
+      screen: ActivityScreen,
+      navigationOptions: {
+        tabBarIcon:({tintColor})=>(  
+          <Icon name="ios-switch" color={tintColor} size={25}/>
+        )
+      }
+    },
+    ChatScreen: {
+      screen: ChatScreen,
+      navigationOptions: {
+        tabBarIcon:({tintColor})=>(  
+          <Icon name="ios-chatbubbles" color={tintColor} size={25}/>
+        )
+      }
+    }
   },
   {
     navigationOptions: ({ navigation }) => {
@@ -42,7 +69,7 @@ const MainScreenTabNavigator = createBottomTabNavigator(
         headerTitle: routeName
       };
     }
-  },
+  }
 );
 
 const MainScreenStackNavigator = createStackNavigator(
@@ -75,8 +102,15 @@ const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
     LoginScreen: LoginScreen,
-    RegisterScreen: RegisterScreen
+    RegisterScreen: RegisterScreen,
+    OtpAuthenticationScreen: OtpAuthenticationScreen,
+    ForgotPasswordScreen: ForgotPasswordScreen,
+    SetPasswordScreen: SetPasswordScreen
   },
+  {
+    transitionConfig: () => fromRight(300)
+  }
+  
 );
 
 const AppDrawerNavigator = createDrawerNavigator({
