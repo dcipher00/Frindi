@@ -5,7 +5,7 @@ import Button from "react-native-button";
 
 interface AppProps {}
 
-export default class LoginScreen extends React.Component<AppProps> {
+export default class RegisterScreen extends React.Component<AppProps> {
   static navigationOptions = {
     title: "Register",
     ...NavStyles

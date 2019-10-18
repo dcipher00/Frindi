@@ -41,7 +41,7 @@ export default class OtpAuthenticationScreen extends React.Component<AppProps> {
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
             onPress={() => this.props.navigation.navigate('SetPasswordScreen')}
           >
-            Proceed
+            Set Password
           </Button>
         </View>
         </ImageBackground>
