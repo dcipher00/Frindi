@@ -3,9 +3,15 @@ import { TextInput, StyleSheet, View, Text, ImageBackground } from "react-native
 import NavStyles from '../../styles/NavStyles';
 import Button from "react-native-button";
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
+interface State {
+  username: string | null;
+  password: string | null;
+}
 
-export default class LoginScreen extends React.Component<AppProps> {
+export default class LoginScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
     title: "Login",
     ...NavStyles
