@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import UserSettingScreen from "./UserSettingScreen";
+import AboutScreen from "./AboutScreen";
 import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
 import RegisterScreen from "./Authentication/RegisterScreen";
@@ -18,6 +19,7 @@ import {
 } from 'react-navigation';
 import ActivityScreen from "./BottomTabs/ActivityScreen";
 import LectureScreen from "./BottomTabs/LectureScreen";
+import CommunityScreen from "./BottomTabs/CommunityScreen";
 import ChatScreen from "./BottomTabs/ChatScreen";
 import Icon from '@expo/vector-icons/Ionicons';
 import { fromRight } from "react-navigation-transitions";
@@ -52,6 +54,9 @@ const MainScreenTabNavigator = createBottomTabNavigator(
           <Icon name="ios-switch" color={tintColor} size={25}/>
         )
       }
+    },
+    CommunityScreen: {
+      screen: CommunityScreen,
     },
     ChatScreen: {
       screen: ChatScreen,
@@ -101,6 +106,12 @@ const UserSettingScreenStackNavigator = createStackNavigator(
   },
 );
 
+const AboutScreenStackNavigator = createStackNavigator(
+  {
+    AboutScreen: AboutScreen
+  },
+);
+
 const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
@@ -122,6 +133,9 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
   UserSettingScreen: {
     screen: UserSettingScreenStackNavigator
+  },
+  AboutScreen: {
+    screen: AboutScreenStackNavigator
   }
 });
 
