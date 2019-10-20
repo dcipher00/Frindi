@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, ImageBackground, Image } from "react-native";
+import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import Button from "react-native-button";
 
@@ -43,6 +43,9 @@ export default class Welcome extends React.Component<AppProps> {
             >
               Need New Account?
             </Button>
+            <Text
+              style={{marginTop:10, color:"cyan", fontFamily:"sans-serif",}}
+            > Learn french through hindi</Text>
           </View>
         </View>
       </ImageBackground>
@@ -56,30 +59,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 200,
+    paddingTop: 150,
     flexDirection: "column"
   },
   logoView: {
-    // flex:1,
     flexDirection:"row",
     alignItems:"stretch",
     alignContent: "center",
-    backgroundColor:'rgba(255, 255, 255, 0.3)',
-    // paddingTop:40,
-    // paddingLeft:35,
-    marginTop:30,
+    backgroundColor:'rgba(255, 255, 255, 0.7)',
+    marginTop:140,
     marginHorizontal:37,
-    height:115,
+    height:150,
     width:300,
     borderRadius:10,
-    // flexWrap:"wrap",
-    // overflow:"hidden"
   },
   logoImage: {
-    // paddingVertical:5,
     marginHorizontal:30,
-    marginBottom:4,
-    height:"115%",
+    marginTop:2,
+    height:"auto",
     width:"83%",
     borderRadius:1
   },
