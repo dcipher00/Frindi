@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import Button from "react-native-button";
 
@@ -14,28 +14,38 @@ export default class Welcome extends React.Component<AppProps> {
   };
 
   render() {
-    const Image = require("../../assets/splash.png");
+    const bgImage = require("../../assets/splash.png");
     return (
       
-        <ImageBackground 
-          source={Image} 
-          style={styles.background}
+      <ImageBackground 
+        source={bgImage} 
+        style={styles.background}
+      >
+        <View
+          style={{flex:1, flexDirection:"column"}}
         >
-        <View style={styles.container}>
-        <Button
-          onPress={() => this.props.navigation.navigate('LoginScreen')}
-          style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-        >
-          Already Have Account!
-        </Button>
-        <Button
-          onPress={() => this.props.navigation.navigate('RegisterScreen')}
-          style={[styles.button,{backgroundColor: "white", color:"#263992"}]}
-        >
-           Need New Account?
-        </Button>
-      </View>
-    </ImageBackground>
+          <View style={styles.logoView}>
+            <Image
+              source={require("../../assets/logo_frindi.png")}
+              style={styles.logoImage}
+            />
+          </View>
+          <View style={styles.container}>
+            <Button
+              onPress={() => this.props.navigation.navigate('LoginScreen')}
+              style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
+            >
+              Already Have Account!
+            </Button>
+            <Button
+              onPress={() => this.props.navigation.navigate('RegisterScreen')}
+              style={[styles.button,{backgroundColor: "white", color:"#263992"}]}
+            >
+              Need New Account?
+            </Button>
+          </View>
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -46,8 +56,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 400,
+    paddingTop: 200,
     flexDirection: "column"
+  },
+  logoView: {
+    // flex:1,
+    flexDirection:"row",
+    alignItems:"stretch",
+    alignContent: "center",
+    backgroundColor:'rgba(255, 255, 255, 0.3)',
+    // paddingTop:40,
+    // paddingLeft:35,
+    marginTop:30,
+    marginHorizontal:37,
+    height:115,
+    width:300,
+    borderRadius:10,
+    // flexWrap:"wrap",
+    // overflow:"hidden"
+  },
+  logoImage: {
+    // paddingVertical:5,
+    marginHorizontal:30,
+    marginBottom:4,
+    height:"115%",
+    width:"83%",
+    borderRadius:1
   },
   button: {
     alignContent: "center",
