@@ -22,7 +22,7 @@ export default class Welcome extends React.Component<AppProps> {
         style={styles.background}
       >
         <View
-          style={{flex:1, flexDirection:"column"}}
+          style={{flex:1, flexDirection:"column", alignContent: "center", alignItems: "center"}}
         >
           <View style={styles.logoView}>
             <Image
@@ -45,7 +45,9 @@ export default class Welcome extends React.Component<AppProps> {
             </Button>
             <Text
               style={{marginTop:10, color:"cyan", fontFamily:"sans-serif",}}
-            > Learn french through hindi</Text>
+            > 
+              Learn french through hindi
+            </Text>
           </View>
         </View>
       </ImageBackground>
@@ -68,7 +70,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     backgroundColor:'rgba(255, 255, 255, 0.7)',
     marginTop:140,
-    marginHorizontal:37,
     height:150,
     width:300,
     borderRadius:10,
