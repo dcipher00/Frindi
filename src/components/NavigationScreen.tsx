@@ -18,6 +18,7 @@ import {
 } from 'react-navigation';
 import ActivityScreen from "./BottomTabs/ActivityScreen";
 import LectureScreen from "./BottomTabs/LectureScreen";
+import CommunityScreen from "./BottomTabs/CommunityScreen";
 import ChatScreen from "./BottomTabs/ChatScreen";
 import Icon from '@expo/vector-icons/Ionicons';
 import { fromRight } from "react-navigation-transitions";
@@ -52,6 +53,9 @@ const MainScreenTabNavigator = createBottomTabNavigator(
           <Icon name="ios-switch" color={tintColor} size={25}/>
         )
       }
+    },
+    CommunityScreen: {
+      screen: CommunityScreen,
     },
     ChatScreen: {
       screen: ChatScreen,
