@@ -13,7 +13,7 @@ interface State {
 
 export default class LoginScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
-    title: "Login", 
+    title: "Login",
     ...NavStyles
   };
 
