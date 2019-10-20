@@ -3,9 +3,16 @@ import { TextInput, StyleSheet, View, Text, ImageBackground } from "react-native
 import NavStyles from '../../styles/NavStyles';
 import Button from "react-native-button";
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
 
-export default class SetPasswordScreen extends React.Component<AppProps> {
+interface State {
+  confirmPassword: string | null;
+  password: string | null;
+}
+
+export default class SetPasswordScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
     title: "Set Password",
     ...NavStyles

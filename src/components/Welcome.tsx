@@ -3,7 +3,9 @@ import { StyleSheet, View, Text, ImageBackground } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import Button from "react-native-button";
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
 
 export default class Welcome extends React.Component<AppProps> {
   static navigationOptions = {

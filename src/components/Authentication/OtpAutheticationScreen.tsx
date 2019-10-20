@@ -3,9 +3,14 @@ import { TextInput, StyleSheet, View, Text, ImageBackground } from "react-native
 import NavStyles from '../../styles/NavStyles';
 import Button from "react-native-button";
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
+interface State {
+  otp: string | null;
+}
 
-export default class OtpAuthenticationScreen extends React.Component<AppProps> {
+export default class OtpAuthenticationScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
     title: "Otp",
     ...NavStyles

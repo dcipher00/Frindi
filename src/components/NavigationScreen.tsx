@@ -66,7 +66,10 @@ const MainScreenTabNavigator = createBottomTabNavigator(
     navigationOptions: ({ navigation }) => {
       const { routeName } = navigation.state.routes[navigation.state.index];
       return {
-        headerTitle: routeName
+        headerTitle: routeName,
+        headerStyle: {
+          backgroundColor: "#ff9900"
+        },
       };
     }
   }
