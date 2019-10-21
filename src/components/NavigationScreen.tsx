@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import UserSettingScreen from "./UserSettingScreen";
+import ProgressScreen from "./ProgressScreen";
 import AboutScreen from "./AboutScreen";
 import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
@@ -15,7 +16,7 @@ import {
   createAppContainer,
   createDrawerNavigator,
   createBottomTabNavigator,
-  createStackNavigator
+  createStackNavigator 
 } from 'react-navigation';
 import ActivityScreen from "./BottomTabs/ActivityScreen";
 import LectureScreen from "./BottomTabs/LectureScreen";
@@ -112,6 +113,12 @@ const AboutScreenStackNavigator = createStackNavigator(
   },
 );
 
+const ProgressScreenStackNavigator = createStackNavigator(
+  {
+    ProgressScreen: ProgressScreen
+  },
+);
+
 const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
@@ -124,7 +131,6 @@ const WelcomScreenStackNavigator = createStackNavigator(
   {
     transitionConfig: () => fromRight(300)
   }
-  
 );
 
 const AppDrawerNavigator = createDrawerNavigator({
@@ -136,6 +142,9 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
   AboutScreen: {
     screen: AboutScreenStackNavigator
+  },
+  ProgressScreen: {
+    screen: ProgressScreenStackNavigator
   }
 });
 
