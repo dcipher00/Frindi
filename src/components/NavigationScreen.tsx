@@ -58,6 +58,11 @@ const MainScreenTabNavigator = createBottomTabNavigator(
     },
     CommunityScreen: {
       screen: CommunityScreen,
+      navigationOptions: {
+        tabBarIcon:({tintColor})=>(  
+          <Icon name="ios-contacts" color={tintColor} size={25}/>
+        )
+      }
     },
     ChatScreen: {
       screen: ChatScreen,
