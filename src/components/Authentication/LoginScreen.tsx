@@ -56,6 +56,7 @@ export default class LoginScreen extends React.Component<AppProps, State> {
               onChangeText={(username) => this.setState({ username })}
               placeholder={'Username'}
               style={styles.input}
+              validate={[email, required, maxLength256, minLength2]}
             />
             <TextInput
               value={this.state.password}
@@ -63,6 +64,7 @@ export default class LoginScreen extends React.Component<AppProps, State> {
               placeholder={'Password'}
               secureTextEntry={true}
               style={styles.input}
+              validate={[required]}
             />
 
             <Button
