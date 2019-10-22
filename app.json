@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.geekforhire.frindi"
+    },
+    "android": {
+      "package": "com.geekforhire.frindi"
     }
   }
 }

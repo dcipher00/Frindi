@@ -6,9 +6,9 @@ interface AppProps {
   navigation: any;
 }
 
-export default class UserSettingScreen extends React.Component<AppProps> {
+export default class About extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Settings",
+    title: "Abouts",
     ...NavStyles
   };
   render() {

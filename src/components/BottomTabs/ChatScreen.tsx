@@ -1,21 +1,21 @@
 import React from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
-import NavStyles from '../styles/NavStyles';
+import NavStyles from '../../styles/NavStyles';
 
 interface AppProps {
-  navigation: any;
+    navigation: any;
 }
 
-export default class UserSettingScreen extends React.Component<AppProps> {
+export default class ChatScreen extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Settings",
+    title: "Chats",
     ...NavStyles
   };
   render() {
     return (
       <View style={styles.container}>
         <Button
-          title="back to Welcome"
+          title="Chat Welcome"
           onPress={() => this.props.navigation.navigate('Welcome')}
         />
       </View>
@@ -27,8 +27,8 @@ export default class UserSettingScreen extends React.Component<AppProps> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     backgroundColor: "#263992",
+    alignItems: "center",
     justifyContent: "center",
     paddingTop: 25,
   },

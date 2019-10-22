@@ -6,14 +6,15 @@ import Button from "react-native-button";
 interface AppProps {
   navigation: any;
 }
+
 interface State {
-  username: string | null;
-  mobile: string | null;
+  confirmPassword: string | null;
+  password: string | null;
 }
 
-export default class ForgotPasswordScreen extends React.Component<AppProps, State> {
+export default class SetPasswordScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
-    title: "Forgot Password",
+    title: "Set Password",
     ...NavStyles
   };
 
@@ -21,8 +22,8 @@ export default class ForgotPasswordScreen extends React.Component<AppProps, Stat
     super(props);
     
     this.state = {
-      username: '',
-      mobile: '',
+      password: '',
+      confirmPassword: '',
     };
   }
 
@@ -35,23 +36,29 @@ export default class ForgotPasswordScreen extends React.Component<AppProps, Stat
           style={styles.background}
         >
         <View style={styles.container}>
-          <Text style={styles.text}>Please Enter Username</Text>
+            <Text style={styles.text}>Enter New Password</Text>
           
-          <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username/Email'}
+            <TextInput
+            value={this.state.password}
+            onChangeText={(password) => this.setState({ password })}
+            placeholder={'New Password'}
+            secureTextEntry={true}
             style={styles.input}
-          />
-          <TextInput
-            value={this.state.mobile}
-            onChangeText={(mobile) => this.setState({ mobile })}
-            placeholder={'Mobile No.'}
+            />
+
+            <Text style={styles.text}>Confirm Password</Text>
+
+            <TextInput
+            value={this.state.confirmPassword}
+            onChangeText={(confirmPassword) => this.setState({ confirmPassword })}
+            placeholder={'Confirm Password'}
+            secureTextEntry={true}
             style={styles.input}
-          />
+            />
+
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('OtpAuthenticationScreen')}
+            onPress={() => this.props.navigation.navigate('LoginScreen')}
           >
             Proceed
           </Button>

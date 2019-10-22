@@ -7,13 +7,12 @@ interface AppProps {
   navigation: any;
 }
 interface State {
-  username: string | null;
-  mobile: string | null;
+  otp: string | null;
 }
 
-export default class ForgotPasswordScreen extends React.Component<AppProps, State> {
+export default class OtpAuthenticationScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
-    title: "Forgot Password",
+    title: "Otp",
     ...NavStyles
   };
 
@@ -21,8 +20,7 @@ export default class ForgotPasswordScreen extends React.Component<AppProps, Stat
     super(props);
     
     this.state = {
-      username: '',
-      mobile: '',
+      otp: ''
     };
   }
 
@@ -35,25 +33,20 @@ export default class ForgotPasswordScreen extends React.Component<AppProps, Stat
           style={styles.background}
         >
         <View style={styles.container}>
-          <Text style={styles.text}>Please Enter Username</Text>
+          <Text style={styles.text}>Please Enter Otp</Text>
           
           <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username/Email'}
+            value={this.state.otp}
+            onChangeText={(otp) => this.setState({ otp })}
+            placeholder={'Otp'}
             style={styles.input}
           />
-          <TextInput
-            value={this.state.mobile}
-            onChangeText={(mobile) => this.setState({ mobile })}
-            placeholder={'Mobile No.'}
-            style={styles.input}
-          />
+          
           <Button
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.props.navigation.navigate('OtpAuthenticationScreen')}
+            onPress={() => this.props.navigation.navigate('SetPasswordScreen')}
           >
-            Proceed
+            Set Password
           </Button>
         </View>
         </ImageBackground>

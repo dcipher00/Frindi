@@ -1,8 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Button } from "react-native";
 import NavStyles from '../../styles/NavStyles';
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
 
 export default class ActivityScreen extends React.Component<AppProps> {
   static navigationOptions = {
@@ -12,7 +14,10 @@ export default class ActivityScreen extends React.Component<AppProps> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Lecture Screen</Text>
+        <Button
+          title="Lecture Welcome"
+          onPress={() => this.props.navigation.navigate('Welcome')}
+        />
       </View>
     );
   }

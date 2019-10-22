@@ -1,9 +1,15 @@
 import React from "react";
-import { TextInput, StyleSheet, View, Text, ImageBackground } from "react-native";
+import { TextInput, StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from "react-native";
 import NavStyles from '../../styles/NavStyles';
 import Button from "react-native-button";
 
-interface AppProps {}
+interface AppProps {
+  navigation: any;
+}
+interface State {
+  username: string | null;
+  password: string | null;
+}
 
 const required = (value) => (value || typeof value === "number" ? undefined : "Required");
 const maxLength = (max) => (value) =>
@@ -19,7 +25,7 @@ const email = (value) =>
 const maxLength256 = maxLength(256);
 const minLength2 = minLength(2);
 
-export default class LoginScreen extends React.Component<AppProps> {
+export default class LoginScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
     title: "Login",
     ...NavStyles
@@ -34,58 +40,73 @@ export default class LoginScreen extends React.Component<AppProps> {
     };
   }
 
-  validate_field = () => {
-    const { username, password} = this.state
-    if(username !== email) {
-      alert("Please fill username")
-      return false
-    }
-    else if(password !== maxLength256 || password !== minLength2) {
-      alert ("Please fill password")
-      return false
-    }
-    return true
-  }
-
-  making_api_call=()=> {
-    if(this.validate_field())
-    {
-      this.props.navigation.navigate('ActivityScreen')
-    }
-  }
-
   render() {
-    const Image = require("../../../assets/splash.png");
+    const bgImage = require("../../../assets/splash.png");
     return (
       
         <ImageBackground 
-          source={Image} 
+          source={bgImage} 
           style={styles.background}
         >
-        <View style={styles.container}>
-          <Text style={styles.text}>Welcome To frindi</Text>
-          
-          <TextInput
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username'}
-            style={styles.input}
-            validate={[email, required, maxLength256, minLength2]}
-          />
-          <TextInput
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            style={styles.input}
-            validate={[required]}
-          />
-          
-          <Button
+          <View style={styles.container}>
+            <Text style={styles.text}>Welcome To frindi</Text>
+
+            <TextInput
+              value={this.state.username}
+              onChangeText={(username) => this.setState({ username })}
+              placeholder={'Username'}
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.password}
+              onChangeText={(password) => this.setState({ password })}
+              placeholder={'Password'}
+              secureTextEntry={true}
+              style={styles.input}
+            />
+
+            <Button
+            onPress={() => this.props.navigation.navigate('ActivityScreen')}
             style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
-            onPress={() => this.making_api_call()}
-          >
-            Sign In!
-          </Button>
-        </View>
+            >
+              Sign In!
+            </Button>
+            <Button
+              onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}
+              style={[styles.button,{backgroundColor: "white", color:"#263992"}]}
+            >
+              Forgot Password?
+            </Button>
+            <View style={[styles.socialContainer,{marginLeft:15}]}>
+              <TouchableOpacity
+                style={styles.ssoButtonHolder}
+                onPress={() => this.props.navigation.navigate('ActivityScreen')}
+              >
+                <Image
+                  source={require("../../../assets/ssi/google.png")}
+                  style={styles.ssoIcon}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.ssoButtonHolder}
+                onPress={() => this.props.navigation.navigate('ActivityScreen')}
+              >
+                <Image
+                  source={require("../../../assets/ssi/facebook.png")}
+                  style={styles.ssoIcon}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.ssoButtonHolder}
+                onPress={() => this.props.navigation.navigate('ActivityScreen')}
+              >
+                <Image
+                  source={require("../../../assets/ssi/twitter.png")}
+                  style={styles.ssoIcon}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
         </ImageBackground>
     );
   }
@@ -97,7 +118,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 25,
+    paddingTop: 230,
+    flexDirection: "column"
+  },
+  socialContainer: {
+    flex: 0.8,
+    alignItems: "flex-end",
+    paddingVertical:60,
+    position:"relative",
+    flexDirection: "row"
+  },
+  ssoButtonHolder: {
+    borderColor:'rgba(0,0,0,0.2)',
+    width:80,
+    height:60,
+    borderRadius:50,
+  },
+  ssoIcon: {
+    borderColor:'rgba(0,0,0,0.2)',
+    width:60,
+    height:60,
   },
   input: {
     width: 350,
@@ -118,10 +158,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontSize: 16,
     textAlignVertical: "center",
-    borderRadius: 25,
-    width: 100,
+    borderRadius: 2,
+    width: 200,
     height: 35,
-    marginVertical: 20
+    marginVertical: 8
   },
   background: {
     height: "100%",
