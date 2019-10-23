@@ -108,35 +108,6 @@ const MainScreenStackNavigator = createStackNavigator(
   }
 );
 
-const UserSettingScreenStackNavigator = createStackNavigator(
-  {
-    UserSettingScreen: UserSettingScreen
-  },
-);
-
-const AboutScreenStackNavigator = createStackNavigator(
-  {
-    AboutScreen: AboutScreen
-  },
-);
-const SupportScreenStackNavigator = createStackNavigator(
-  {
-    SupportScreen: SupportScreen
-  },
-);
-
-const ProgressScreenStackNavigator = createStackNavigator(
-  {
-    ProgressScreen: ProgressScreen
-  },
-);
-
-const ProfileScreenStackNavigator = createStackNavigator(
-  {
-    ProfileScreen: ProfileScreen
-  },
-);
-
 const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
@@ -155,20 +126,20 @@ const AppDrawerNavigator = createDrawerNavigator({
   MainScreen: {
     screen: MainScreenStackNavigator
   },
-  UserSettingScreen: {
-    screen: UserSettingScreenStackNavigator
-  },
-  AboutScreen: {
-    screen: AboutScreenStackNavigator
-  },
-  SupportScreen: {
-    screen: SupportScreenStackNavigator
+  ProfileScreen: {
+    screen: ProfileScreen
   },
   ProgressScreen: {
-    screen: ProgressScreenStackNavigator
+    screen: ProgressScreen
   },
-  ProfileScreen: {
-    screen: ProfileScreenStackNavigator
+  UserSettingScreen: {
+    screen: UserSettingScreen
+  },
+  SupportScreen: {
+    screen: SupportScreen
+  },
+  AboutScreen: {
+    screen: AboutScreen
   }
 });
 
