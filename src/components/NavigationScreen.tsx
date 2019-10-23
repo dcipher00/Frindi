@@ -4,6 +4,7 @@ import NavStyles from '../styles/NavStyles';
 import UserSettingScreen from "./UserSettingScreen";
 import SupportScreen from "./SupportScreen";
 import ProgressScreen from "./ProgressScreen";
+import ProfileScreen from "./ProfileScreen";
 import AboutScreen from "./AboutScreen";
 import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
@@ -130,6 +131,12 @@ const ProgressScreenStackNavigator = createStackNavigator(
   },
 );
 
+const ProfileScreenStackNavigator = createStackNavigator(
+  {
+    ProfileScreen: ProfileScreen
+  },
+);
+
 const WelcomScreenStackNavigator = createStackNavigator(
   {
     WelcomeScreen: WelcomeScreen,
@@ -159,6 +166,9 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
   ProgressScreen: {
     screen: ProgressScreenStackNavigator
+  },
+  ProfileScreen: {
+    screen: ProfileScreenStackNavigator
   }
 });
 
