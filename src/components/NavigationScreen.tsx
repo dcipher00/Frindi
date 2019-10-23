@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import NavStyles from '../styles/NavStyles';
 import UserSettingScreen from "./UserSettingScreen";
+import SupportScreen from "./SupportScreen";
 import AboutScreen from "./AboutScreen";
 import WelcomeScreen from "./Welcome";
 import LoginScreen from "./Authentication/LoginScreen";
@@ -111,6 +112,11 @@ const AboutScreenStackNavigator = createStackNavigator(
     AboutScreen: AboutScreen
   },
 );
+const SupportScreenStackNavigator = createStackNavigator(
+  {
+    SupportScreen: SupportScreen
+  },
+);
 
 const WelcomScreenStackNavigator = createStackNavigator(
   {
@@ -136,6 +142,9 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
   AboutScreen: {
     screen: AboutScreenStackNavigator
+  },
+  SupportScreen: {
+    screen: SupportScreenStackNavigator
   }
 });
 
