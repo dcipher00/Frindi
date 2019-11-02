@@ -9,8 +9,7 @@ interface AppProps {
 
 export default class Welcome extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Frindi",
-    ...NavStyles
+    header: null
   };
 
   render() {
