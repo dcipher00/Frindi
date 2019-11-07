@@ -7,9 +7,9 @@ interface AppProps {
   navigation: any;
 }
 
-export default class ActivityScreen extends React.Component<AppProps> {
+export default class About extends React.Component<AppProps> {
   static navigationOptions = {
-    title: "Activity",
+    title: "Abouts",
     ...NavStyles
   };
   render() {
@@ -19,7 +19,7 @@ export default class ActivityScreen extends React.Component<AppProps> {
           mode="contained"
           onPress={() => this.props.navigation.navigate('Welcome')}
         >
-          Activity Welcome
+          back to Welcome
         </Button>
       </View>
     );
@@ -30,8 +30,8 @@ export default class ActivityScreen extends React.Component<AppProps> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#263992",
     alignItems: "center",
+    backgroundColor: "#263992",
     justifyContent: "center",
     paddingTop: 25,
   },

@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
+import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import NavStyles from '../styles/NavStyles';
-import Button from "react-native-button";
+import { Button, Text } from "react-native-paper";
 
 interface AppProps {
   navigation: any;
@@ -32,15 +32,19 @@ export default class Welcome extends React.Component<AppProps> {
           <View style={styles.container}>
             <Button
               onPress={() => this.props.navigation.navigate('LoginScreen')}
-              style={[styles.button,{backgroundColor: "#ff9900", color: "white"}]}
+              style={[styles.button,{backgroundColor: "#ff9900"}]}
             >
-              Already Have Account!
+              <Text style={{color: "white"}}>
+                Already Have Account!
+              </Text>
             </Button>
             <Button
               onPress={() => this.props.navigation.navigate('RegisterScreen')}
-              style={[styles.button,{backgroundColor: "white", color:"#263992"}]}
+              style={[styles.button,{backgroundColor: "white"}]}
             >
-              Need New Account?
+              <Text style={{color:"#263992"}}>
+                Need New Account?
+              </Text>
             </Button>
             <Text
               style={{marginTop:10, color:"cyan", fontFamily:"sans-serif",}}
