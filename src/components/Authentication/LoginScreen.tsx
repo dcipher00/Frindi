@@ -11,6 +11,20 @@ interface State {
   password: string | null;
 }
 
+const required = (value) => (value || typeof value === "number" ? undefined : "Required");
+const maxLength = (max) => (value) =>
+	value && value.length > max ? `Must be ${max} characters or less` : undefined;
+const minLength = (min) => (value) =>
+	value && value.length < min ? `Must be ${min} characters or more` : undefined;
+
+const email = (value) =>
+	value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+		? "Invalid email address"
+		: undefined;
+
+const maxLength256 = maxLength(256);
+const minLength2 = minLength(2);
+
 export default class LoginScreen extends React.Component<AppProps, State> {
   static navigationOptions = {
     title: "Login",
@@ -42,6 +56,7 @@ export default class LoginScreen extends React.Component<AppProps, State> {
               onChangeText={(username) => this.setState({ username })}
               placeholder={'Username'}
               style={styles.input}
+              validate={[email, required, maxLength256, minLength2]}
             />
             <TextInput
               value={this.state.password}
@@ -49,6 +64,7 @@ export default class LoginScreen extends React.Component<AppProps, State> {
               placeholder={'Password'}
               secureTextEntry={true}
               style={styles.input}
+              validate={[required]}
             />
 
             <Button
